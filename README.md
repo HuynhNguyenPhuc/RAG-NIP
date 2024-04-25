@@ -29,12 +29,25 @@ pip install -r requirement.txt
 ### Initialize the database (If needed)
 
 ### Start Chroma database server
+Create a tab in the terminal and run this command
+```
 chroma run --path ./database --port 8080
+```
+The Chroma database server will run on ...
 
 ### Start FastAPI server
+Create another tab in the terminal and run this command
+```
+uvicorn main:app --reload
+```
+The FastAPI server will run on ...
 
 After doing these above steps, you can use the APIs. Use some tools (like Postman) for testing.
+
+## APIs
 
 ## Future Plan
 * Add UI for this project
 * Update the embedding funtion of Chroma DB to get better performance
+
+Chill coding!!!
