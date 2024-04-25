@@ -1,3 +1,3 @@
 import chromadb
 
-chromaClient = chromadb.HttpClient(host='localhost', port=8000)
+chromaClient = chromadb.HttpClient(host='localhost', port=8080)
