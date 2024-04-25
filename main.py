@@ -26,7 +26,7 @@ collection = chromaClient.get_collection("NIPs-paper")
 @app.get("/papers", response_model=List[dict])
 async def get_papers():
     paper_data = []
-    for idx, paper_id in enumerate(papers.head(10)["id"]):
+    for idx, paper_id in enumerate(papers["id"]):
         paper_info = {
             "id": paper_id,
             "year": papers.loc[idx, "year"].iloc[0],
