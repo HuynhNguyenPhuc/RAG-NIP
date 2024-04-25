@@ -1,18 +1,17 @@
-from utils.getter import getPapers
+from utils.getter import id_list, title_list
 import chromadb
 
 client = chromadb.PersistentClient(path="./database")
-
-papers = getPapers()
-id_list = list(papers['id'].astype(str))
-title_list = list(papers['title'])
 
 try:
     client.delete_collection("NIPs-paper")
 except ValueError:
     pass
 finally:
-    collection = client.get_or_create_collection("NIPs-paper")
+    collection = client.get_or_create_collection(
+        name = "NIPs-paper",
+        metadata={"hnsw:space": "cosine"}
+    )
 
 collection.add(
     documents=title_list[:4000],
