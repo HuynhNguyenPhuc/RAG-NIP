@@ -32,9 +32,6 @@ async def get_papers():
             "year": papers.loc[idx, "year"].iloc[0],
             "title": papers.loc[idx, "title"].iloc[0],
             "event_type": papers.loc[idx, "event_type"].iloc[0],
-            "pdf_name": papers.loc[idx, "pdf_name"].iloc[0],
-            "abstract": papers.loc[idx, "abstract"].iloc[0],
-            "paper_text": papers.loc[idx, "paper_text"].iloc[0],
             "authors": papers.loc[idx, "authors"].iloc[0]
         }
         paper_data.append(paper_info)
