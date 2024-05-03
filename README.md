@@ -42,6 +42,7 @@ For development, run this command
 uvicorn main:app --reload
 ```
 The FastAPI server will run on *http://127.0.0.1:8000*
+
 For production, run this command
 ```
 uvicorn main:app --host <IP-address> --port <port-number>
