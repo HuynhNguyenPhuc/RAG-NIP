@@ -37,12 +37,15 @@ chroma run --path ./database --port 8080
 The Chroma database server will run on *http://localhost:8080*
 
 ### Start FastAPI server
-Create another tab in the terminal and run this command
+For development, run this command
 ```
 uvicorn main:app --reload
 ```
 The FastAPI server will run on *http://127.0.0.1:8000*
-
+For production, run this command
+```
+uvicorn main:app --host <IP-address> --port <port-number>
+```
 After doing these above steps, you can use the APIs. Use some tools (like Postman) for testing.
 
 ## APIs
