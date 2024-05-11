@@ -1,7 +1,7 @@
 from utils.getter import id_list, title_list
 import chromadb
 
-client = chromadb.PersistentClient(path="./database")
+client = chromadb.PersistentClient(path="./database/chroma")
 
 try:
     client.delete_collection("NIPs-paper")

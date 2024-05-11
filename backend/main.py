@@ -4,6 +4,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from typing import List, Union
 from utils.type import Sentence
 from copy import deepcopy
+import json
 
 from utils.getter import papers, id_list, title_list, author_list, graph, partition_list, partition_mapping
 from utils.db import chromaClient

@@ -32,7 +32,7 @@ I have initialized the database. You can change the dbInit.py file if needed and
 ### Start Chroma database server
 Create a tab in the terminal and run this command
 ```
-chroma run --path ./database --port 8080
+chroma run --path ./database/chroma --port 8080
 ```
 The Chroma database server will run on *http://localhost:8080*
 
