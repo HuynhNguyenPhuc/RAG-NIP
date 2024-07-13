@@ -1,8 +1,8 @@
-# Recommendation System API for NIPs Dataset
+# Simple RAG for NIPs dataset
 
 ## Description
 * Apply Louvain algorithm for community detection
-* Use ChromaDB to construct a vector database for enhanced querying within the API
+* Use ChromaDB to construct a RAG for NIPs dataset
 
 ## Tech Stack
 * **Louvain Algorithm**: An algorithm for detecting the communities in a large network. More detail [here](https://en.wikipedia.org/wiki/Louvain_method)
@@ -52,9 +52,5 @@ After doing these above steps, you can use the APIs. Use some tools (like Postma
 ## APIs
 * GET /papers: Get information of all papers in the dataset
 * POST /recommends, body: {"Sentence": str}: Get 5 recommended papers of the input paper.
-
-## Future Plan
-* Add UI for this project
-* Update the embedding funtion of Chroma DB to get better performance
 
 <h3 style="text-align:center; font-size:30px">Chill coding!!!</h3>
