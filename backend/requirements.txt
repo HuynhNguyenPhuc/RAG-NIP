@@ -4,3 +4,8 @@ matplotlib
 pickle
 pydantic
 chromadb
+fastapi
+uvicorn[standard]
+transformers
+sentence_transformers
+tf_keras

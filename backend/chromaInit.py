@@ -1,9 +1,15 @@
 from utils.getter import id_list, title_list
 import chromadb
+from sentence_transformers import SentenceTransformer
+from chromadb.api.types import EmbeddingFunction
 
-embedding_func = chromadb.utils.embedding_functions.SentenceTransformerEmbeddingFunction(
-    model_name="all-mpnet-base-v2"
-)
+model = SentenceTransformer('sentence-transformers/all-MiniLM-L6-v2')
+
+class CustomEmbeddingFunction(EmbeddingFunction):
+    def __call__(self, input):
+        return model.encode(input).tolist()
+
+embedding_func = CustomEmbeddingFunction()
 
 client = chromadb.PersistentClient(path="database/chroma")
 
@@ -13,15 +19,17 @@ except ValueError:
     pass
 finally:
     collection = client.get_or_create_collection(
-        name = "NIPs-paper",
-        embedding_function= embedding_func,
+        name="NIPs-paper",
+        embedding_function=embedding_func,
         metadata={"hnsw:space": "cosine"}
     )
 
 num_records = len(title_list)
 
-for i in range(0, num_records, 4000): 
+batch_size = 4000
+for i in range(0, num_records, batch_size):
+    end_index = min(i + batch_size, num_records)
     collection.add(
-        documents=title_list[i:(i + 4000) if (i + 4000) < num_records else num_records],
-        ids=id_list[i:(i + 4000) if (i + 4000) < num_records else num_records]
+        documents=title_list[i:end_index],
+        ids=id_list[i:end_index]
     )
